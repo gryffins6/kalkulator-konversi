@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroTech ToolKit</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <h2>Elektronic-ToolKit</h2>
+        <nav>
+            <button onclick="showSection('ohm')">Hukum Ohm</button>
+            <button onclick="showSection('resistor')">Kode Warna</button>
+            <button onclick="showSection('circuit')">Seri & Paralel</button>
+        </nav>
+    </div>
+
+    <div class="main-content">
+        <!-- Section Hukum Ohm -->
+        <section id="ohm" class="active">
+            <h1>Kalkulator Hukum Ohm</h1>
+            <div class="card">
+                <input type="number" id="v_input" placeholder="Tegangan (V)">
+                <input type="number" id="i_input" placeholder="Arus (I)">
+                <input type="number" id="r_input" placeholder="Hambatan (R)">
+                <p>*Kosongkan satu kolom yang ingin dicari</p>
+                <button onclick="hitungOhm()">Hitung</button>
+                <div class="result" id="res_ohm">Hasil: --</div>
+            </div>
+        </section>
+
+        <!-- Section Resistor Lengkap -->
+<section id="resistor">
+    <h1>Kode Warna Resistor (4 Pita)</h1>
+    <div class="card">
+        
+        <label>Pita 1 (Angka Pertama):</label>
+        <select id="pita1">
+            <option value="0">Hitam (0)</option>
+            <option value="1">Cokelat (1)</option>
+            <option value="2" selected>Merah (2)</option>
+            <option value="3">Oranye (3)</option>
+            <option value="4">Kuning (4)</option>
+            <option value="5">Hijau (5)</option>
+            <option value="6">Biru (6)</option>
+            <option value="7">Ungu (7)</option>
+            <option value="8">Abu-abu (8)</option>
+            <option value="9">Putih (9)</option>
+        </select>
+
+        <label>Pita 2 (Angka Kedua):</label>
+        <select id="pita2">
+            <option value="0">Hitam (0)</option>
+            <option value="1">Cokelat (1)</option>
+            <option value="2">Merah (2)</option>
+            <option value="3">Oranye (3)</option>
+            <option value="4">Kuning (4)</option>
+            <option value="5">Hijau (5)</option>
+            <option value="6">Biru (6)</option>
+            <option value="7">Ungu (7)</option>
+            <option value="8">Abu-abu (8)</option>
+            <option value="9">Putih (9)</option>
+        </select>
+
+        <label>Pita 3 (Pengali):</label>
+        <select id="pengali">
+            <option value="1">Hitam (x1 Ω)</option>
+            <option value="10">Cokelat (x10 Ω)</option>
+            <option value="100">Merah (x100 Ω)</option>
+            <option value="1000">Oranye (x1k Ω)</option>
+            <option value="10000">Kuning (x10k Ω)</option>
+            <option value="100000">Hijau (x100k Ω)</option>
+            <option value="1000000">Biru (x1M Ω)</option>
+            <option value="0.1">Emas (x0.1 Ω)</option>
+            <option value="0.01">Perak (x0.01 Ω)</option>
+        </select>
+
+        
+        <label>Pita 4 (Toleransi):</label>
+        <select id="toleransi">
+           <option value="1">Cokelat (±1%)</option>
+           <option value="2">Merah (±2%)</option>
+           <option value="0.5">Hijau (±0.5%)</option>
+           <option value="0.25">Biru (±0.25%)</option>
+           <option value="0.1">Ungu (±0.1%)</option>
+           <option value="5" selected>Emas (±5%)</option>
+           <option value="10">Perak (±10%)</option>
+        </select>
+
+        <button onclick="hitungWarna()">Cek Nilai Resistor</button>
+        <div class="result" id="res_warna">Hasil: -- Ohm</div>
+    </div>
+</section>
+
+ <section id="circuit">
+    <h1>Kalkulator Seri & Paralel</h1>
+    <div class="card">
+        <label>Pilih Jenis Rangkaian:</label>
+        <select id="tipe_rangkaian">
+            <option value="seri">Seri (R1 + R2 + ...)</option>
+            <option value="paralel">Paralel (1/R1 + 1/R2 + ...)</option>
+        </select>
+
+        <label>Masukkan Nilai Resistor (pisahkan dengan koma):</label>
+        <input type="text" id="r_values" placeholder="Contoh: 100, 220, 470">
+        <p style="font-size: 0.8rem; color: #94a3b8;">*Gunakan tanda koma ( , ) sebagai pemisah</p>
+
+        <button onclick="hitungCircuit()">Hitung Total Hambatan</button>
+        
+        <div class="result" id="res_circuit">Total: -- Ohm</div>
+    </div>
+</section>
+
+    <script src="script.js"></script>
+</body>
+</html>
